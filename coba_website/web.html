@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajakan Jalan-Jalan Romantis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1; /* Warna latar belakang lembut */
+            text-align: center;
+            padding: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #ff69b4; /* Warna tombol yang lebih romantis */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff1493; /* Warna tombol saat hover */
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px; /* Tambahkan sudut melengkung pada gambar */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JALAN JALAN YUKK BYYBYY!</h1>
+    <p>Pilih tempat wisata yang BYBY MAU:</p>
+
+    <div id="menu">
+        <button onclick="showWisata('pantai')">Pantai</button>
+        <button onclick="showWisata('gunung')">Gunung</button>
+        <button onclick="showWisata('kota')">Kota</button>
+    </div>
+
+    <div id="wisata" class="hidden">
+        <h2 id="wisata-title"></h2>
+        <p id="wisata-description"></p>
+        <img id="wisata-image" class="hidden" alt="Gambar Wisata">
+        <button onclick="backToMenu()">Kembali ke Menu</button>
+    </div>
+
+    <script>
+        function showWisata(tempat) {
+            const title = document.getElementById('wisata-title');
+            const description = document.getElementById('wisata-description');
+            const image = document.getElementById('wisata-image');
+            const menu = document.getElementById('menu');
+            const wisata = document.getElementById('wisata');
+
+            menu.classList.add('hidden');
+            wisata.classList.remove('hidden');
+
+            if (tempat === 'pantai') {
+                title.innerText = 'Pantai Sawarna';
+                description.innerText = 'PASTI SERUU KE PANTAI SAMA BYBYYYY';
+                image.src = 'https://wisatakita.com/pariwisata/462/800-Pantai-Sawarna.jpeg'; // Ganti dengan URL gambar Pantai Kuta yang sesuai
+                image.classList.remove('hidden');
+            } else if (tempat === 'gunung') {
+                title.innerText = 'Puncak';
+                description.innerText = 'GASKEUNN SELASA KE LITTLE SINDBAD';
+                image.src = 'https://th.bing.com/th/id/OIP.52qlJO5nOrIXI_kM6V3f4AAAAA?w=136&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7'; // Ganti dengan URL gambar Gunung Bromo yang sesuai
+                image.classList.remove('hidden');
+            } else if (tempat === 'kota') {
+                title.innerText = 'Kota Bandung';
+                description.innerText = 'AYOOOO KITA KE BANDUNG BERSAMA CI BYBYYYYYY';
+                image.src = 'https://th.bing.com/th/id/OIP.dz4RwLNs527XLM-m6FufzAAAAA?rs=1&pid=ImgDetMain'; // Ganti dengan URL gambar Kota Bandung yang sesuai
+                image.classList.remove('hidden');
+            }
+        }
+
+        function backToMenu() {
+            const menu = document.getElementById('menu');
+            const wisata = document.getElementById('wisata');
+            const image = document.getElementById('wisata-image');
+
+            menu.classList.remove('hidden');
+            wisata.classList.add('hidden');
+            image.classList.add('hidden'); // Sembunyikan gambar saat kembali ke menu
+        }
+    </script>
+
+</body>
+</html>
